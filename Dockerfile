@@ -1,6 +1,6 @@
-FROM node:14-alpine as dev
+FROM node:14 as dev
 
-RUN apk add git
+# RUN apt-get install -y git
 
 WORKDIR /workspace
 
