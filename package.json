@@ -1,0 +1,19 @@
+{
+  "name": "app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "fastify": "^3.6.0"
+  },
+  "devDependencies": {
+    "eslint": "^7.11.0",
+    "jest": "^26.5.2"
+  },
+  "scripts": {
+    "start": "node src/main.js",
+    "test": "jest"
+  },
+  "author": "",
+  "license": "ISC"
+}

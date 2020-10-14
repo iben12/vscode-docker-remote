@@ -1,0 +1,20 @@
+{
+  "extends": [
+    "eslint:recommended"
+  ],
+  "env": {
+    "es6": true,
+    "node": true,
+    "mocha": true,
+    "jest": true
+  },
+  "plugins": [
+    "jest"
+  ],
+  "parserOptions": {
+    "ecmaVersion": 2020
+  },
+  "rules": {
+    "quotes": [2, "single", { "avoidEscape": true }]
+  }
+}
