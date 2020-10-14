@@ -12,3 +12,10 @@ services:
       - type: volume
         target: /workspace/node_modules
     command: ["npm", "start"]
+  db:
+    image: mongo:4.4
+    ports:
+      - 37017:27017
+    environment:
+      - "MONGO_INITDB_ROOT_USERNAME=user"
+      - "MONGO_INITDB_ROOT_PASSWORD=pass"
