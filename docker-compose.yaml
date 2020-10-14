@@ -3,10 +3,12 @@ version: "2.4"
 services:
   app:
     image: app
-    build: .
+    build:
+      context: .
+      target: dev
     working_dir: /workspace
     volumes:
-      - /workspace/node_modules
-    # ports:
-      # - "3000:3000"
+      # - /workspace/node_modules
+      - type: volume
+        target: /workspace/node_modules
     command: ["npm", "start"]
