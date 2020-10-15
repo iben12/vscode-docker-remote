@@ -1,6 +1,6 @@
 # Development in Docker containers with Visual Studio Code
 
-VS Code offers a **Remote Expoler** feature that basically decouples the _workspace_ from the UI where we actually code. The workspace is where the source code sits, where the program and tests are running, the code-hinting and linting is executed. The UI is just the VS Code window with the controls and menus, which is connected to the workspace that in this case runs elsewhere. This can be a remote host, or a Docker Container running on our machine.
+VS Code offers a **Remote Explorer** feature that basically decouples the _workspace_ from the UI where we actually code. The workspace is where the source code sits, where the program and tests are running, the code-hinting and linting is executed. The UI is just the VS Code window with the controls and menus, which is connected to the workspace that in this case runs elsewhere. This can be a remote host, or a Docker Container running on our machine.
 
 This repo is an example setup for developing a NodeJS application (optionally with MongoDB) in a container without any performance compromise.
 
@@ -22,13 +22,13 @@ When it's up, you will have a remote terminal that runs inside the container. Yo
 
 If you start the server, you will notice that the port opened by the application (3000) is automatically forwarded to your `localhost`. You can open it in your browser just as it was running on your local machine.
 
-When it comes to debugging, you can start a Debugger Terminal from the _Run_ pane or in the Terminal panel. Set your breakpoints and start the application or run the tests. Debug just works.
+When it comes to debugging, you can start a Debugger Terminal from the _Run_ pane or in the Terminal panel. Set your breakpoints (Hint: `src/server.js:7`) and start the application or run the tests. Debugging just works.
 
-Extensions (ex. linting/formatting tools) can be installed into the remote VS Code instance as well. This can be done either from the Extensions pane using _Install in Dev Conatiner_ button or _Add to .devcontainer.json_ from the context menu. In this setup `eslint` and `prettier` are added.
+Extensions (ex. linting/formatting tools) can be installed into the remote VS Code instance as well. This can be done either from the Extensions pane using _Install in Dev Container_ button or _Add to .devcontainer.json_ from the context menu. In this setup `eslint` and `prettier` are added.
 
 ---
 ## Background
-My problem with the predifined setups was the performance. All of them `bind` mounts the source folder into the container, which usally contains the dependecies folder (`node_modules`, `vendor`, whatever it's called in your preferred language) as well. These tend to contain miriads of small files.
+My problem with the predefined setups was the performance. All of them `bind` mounts the source folder into the container, which usually contains the dependencies folder (`node_modules`, `vendor`, whatever it's called in your preferred language) as well. These tend to contain myriads of small files.
 
 If you are on Mac or Windows (unless your source code is inside the WSL 2 volume) keeping these files in sync between local and the VM Docker actually runs in is resource intensive and degrades performance pretty badly. You can try fiddle with [consistency](https://docs.docker.com/storage/bind-mounts/#configure-mount-consistency-for-macos) settings on MacOS, but it will not help much. Installing dependencies, building, or running tests (generally file i/o heavy operations) are very slow compared to running locally.
 
