@@ -4,7 +4,7 @@ function build(opts = {}) {
   const server = fastify(opts);
 
   server.get('/', (request) => {
-    const name = request.query.user;
+    const name = request.query.name;
     if (name) {
       return `hello ${name}!`;
     }
